@@ -1,4 +1,3 @@
-VERSION=0.0.0
 NAME:="thebutton"
 MONOVA:=$(shell which monova dot 2> /dev/null)
 
@@ -26,6 +25,9 @@ build_chrome: render_manifest_chrome
 	cd src && zip -r ../build/${NAME}-$(VERSION)_chrome.zip *
 
 build: build_firefox build_chrome
+
+release: build
+	grm release jsnjack/thebutton -f ./build/${NAME}-$(VERSION)_chrome.zip -f ./build/${NAME}-$(VERSION)_firefox.zip -t "v`monova`"
 
 run: render_manifest_firefox
 	./node_modules/.bin/web-ext run -s src
