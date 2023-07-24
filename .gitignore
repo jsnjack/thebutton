@@ -1,0 +1,5 @@
+node_modules
+manifest.template
+.monova.history
+build
+src/manifest.json

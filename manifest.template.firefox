@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "The button for Surfly",
+  "description": "This extension adds a page action which allows you to convert the current tab to a Surfly session",
+  "version": "${VERSION}",
+  "icons": {
+    "64": "icons/icon.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{e0a17a38-2a65-11ee-b5e7-f02f741aae15}",
+      "strict_min_version": "109.0"
+    }
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "page_action": {
+    "default_icon": "icons/action.png",
+    "default_title": "Surf it!"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  }
+}
