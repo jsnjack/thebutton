@@ -25,7 +25,6 @@ function isSurflableURL(url) {
 }
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    console.log("onUpdated", tabId, changeInfo, tab);
     if (tab.status !== "complete") {
         return;
     }
