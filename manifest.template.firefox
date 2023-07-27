@@ -12,8 +12,13 @@
       "strict_min_version": "109.0"
     }
   },
+  "host_permissions": [
+    "https://*.surfly.online/*",
+    "https://surfly.online/*"
+  ],
   "permissions": [
-    "tabs"
+    "tabs",
+    "scripting"
   ],
   "page_action": {
     "default_icon": "icons/action.png",

@@ -7,7 +7,12 @@
     "64": "icons/icon.png"
   },
   "permissions": [
-    "tabs"
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*.surfly.online/*",
+    "https://surfly.online/*"
   ],
   "action": {
     "default_icon": "icons/action.png",
