@@ -51,7 +51,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 // Get the ID of the tab which runs Surfly session
 async function getSurflyTabID() {
     const tabs = await chrome.tabs.query({
-        currentWindow: true,
+        currentWindow: false,
         url: [
             `https://${surflyServer}/*`,  // Regular Surfly session or Space
             `https://*.${surflyServer}/*`,  // Space session with custom subdomain
