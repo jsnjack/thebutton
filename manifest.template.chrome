@@ -12,7 +12,13 @@
   ],
   "host_permissions": [
     "https://*.surfly.online/*",
-    "https://surfly.online/*"
+    "https://surfly.online/*",
+    "https://*.surfly.com/*",
+    "https://surfly.com/*",
+    "https://*.webfuse.com/*",
+    "https://webfuse.com/*",
+    "https://*.webfu.se/*",
+    "https://webfu.se/*"
   ],
   "action": {
     "default_icon": "icons/action.png",

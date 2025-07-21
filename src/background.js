@@ -1,3 +1,4 @@
+// Should be also added to the manifest templates
 const surflyServers = [
     "surfly.online",
     "surfly.com",
