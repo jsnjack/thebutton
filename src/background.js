@@ -25,7 +25,7 @@ function hideActionButton(tabID) {
 function isSurflableURL(url) {
     try {
         const newURL = new URL(url);
-        if (surflyServers.some(server => newURL.hostname === server || newURL.hostname.endsWith(`.${server}`))) {
+        if (surflyServers.some(server => newURL.hostname === server)) {
             return false;
         }
         return true;
