@@ -1,4 +1,9 @@
-const surflyServers = ["surfly.online"];
+const surflyServers = [
+    "surfly.online",
+    "surfly.com",
+    "webfuse.com",
+    "webfu.se"
+];
 
 // Firefox and Chrome have different API for actions/pageActions
 var action = typeof browser !== 'undefined' ? chrome.pageAction : chrome.action;
