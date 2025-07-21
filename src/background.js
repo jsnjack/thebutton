@@ -1,4 +1,4 @@
-const surflyServer = "surfly.online";
+const surflyServers = ["surfly.online"];
 
 // Firefox and Chrome have different API for actions/pageActions
 var action = typeof browser !== 'undefined' ? chrome.pageAction : chrome.action;
@@ -19,7 +19,7 @@ function hideActionButton(tabID) {
 function isSurflableURL(url) {
     try {
         const newURL = new URL(url);
-        if (newURL.hostname === surflyServer || newURL.hostname.endsWith(surflyServer)) {
+        if (surflyServers.some(server => newURL.hostname === server || newURL.hostname.endsWith(`.${server}`))) {
             return false;
         }
         return true;
@@ -30,7 +30,7 @@ function isSurflableURL(url) {
 
 // Start a new Surfly session by navigating to the dashboard with url in query string
 function startSurflySession(url) {
-    const newURL = new URL("https://app." + surflyServer);
+    const newURL = new URL("https://app." + surflyServers[0]);
     newURL.searchParams.set("url", url);
     chrome.tabs.update({ url: newURL.toString() });
 }
@@ -50,11 +50,12 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 
 // Get the ID of the tab which runs Surfly session
 async function getSurflyTabID() {
+    const urls = surflyServers.flatMap(server => [
+        `https://${server}/*`,
+        `https://*.${server}/*`,
+    ]);
     const tabs = await chrome.tabs.query({
-        url: [
-            `https://${surflyServer}/*`,  // Regular Surfly session or Space
-            `https://*.${surflyServer}/*`,  // Space session with custom subdomain
-        ]
+        url: urls
     });
 
     for (const tab of tabs) {
